@@ -11,6 +11,10 @@ set(Queue Queue)
 set(QueueLib QueueLib)
 set(QueueTest QueueTest)
 
+set(Vector Vector)
+set(VectorLib VectorLib)
+set(VectorTest VectorTest)
+
 set(Matrix Matrix)
 set(MatrixLib MatrixLib)
 set(MatrixTest MatrixTest)
@@ -27,6 +31,7 @@ file(GLOB srcs "*.cpp") #Добавляем в переменную srcs все 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
 
 add_subdirectory(Stack)
@@ -40,5 +45,9 @@ add_subdirectory(QueueTest)
 add_subdirectory(Matrix)
 add_subdirectory(MatrixLib)
 add_subdirectory(MatrixTest)
+
+add_subdirectory(Vector)
+add_subdirectory(VectorLib)
+add_subdirectory(VectorTest)
 
 add_subdirectory(gtest)
