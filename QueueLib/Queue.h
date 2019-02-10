@@ -48,7 +48,7 @@ void TQueue<T>::Put(T A)
   
   else 
   {
-	mas[start] = A;
+	TStack<T>::mas[start] = A;
 	start = (start + 1) % size;;
 	count++;
   }
