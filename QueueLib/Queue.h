@@ -62,8 +62,8 @@ T TQueue<T>::Get()
   
   else 
   {
-	T temp = TStack<T>::mas[top];
-	top = (top + 1) % size;;
+	T temp = TStack<T>::mas[TStack<T>::top];
+	top = (top + 1) % TStack<T>::size;;
 	count--;
 		
 	return temp;
