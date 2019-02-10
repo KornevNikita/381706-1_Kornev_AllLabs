@@ -21,6 +21,8 @@ script:
   - ./StackListTest/StackListTest
   - ./StackList/StackList
   - ./MultiStackTest/MultiStackTest
-  - ./MultiStack/MultiStack    
+  - ./MultiStack/MultiStack
+  - ./PolinomTest/PolinomTest
+  - ./Polinom/Polinom  
 notifications:
   email: false

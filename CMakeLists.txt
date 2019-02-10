@@ -31,6 +31,10 @@ set(MultiStack MultiStack)
 set(MultiStackLib MultiStackLib)
 set(MultiStackTest MultiStackTest)
 
+set(Polinom Polinom)
+set(PolinomLib PolinomLib)
+set(PolinomTest PolinomTest)
+
 set(MyExceptionLib MyExceptionLib)
 
 
@@ -51,6 +55,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MyExceptionLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackListLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MultiStackLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PolinomLib)
 
 add_subdirectory(Stack)
 add_subdirectory(StackLib)
@@ -79,6 +84,10 @@ add_subdirectory(StackListTest)
 add_subdirectory(MultiStack)
 add_subdirectory(MultiStackLib)
 add_subdirectory(MultiStackTest)
+
+add_subdirectory(Polinom)
+add_subdirectory(PolinomLib)
+add_subdirectory(PolinomTest)
 
 add_subdirectory(gtest)
 add_subdirectory(MyExceptionLib)
