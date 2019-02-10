@@ -2,7 +2,7 @@
 #include <gtest.h>
 TEST(TList, can_create_list)
 {
-	ASSERT_NO_THROW(TList<int> A());
+	ASSERT_NO_THROW(TList<int> A);
 }
 
 TEST(TList, can_create_copy_of_the_list)
