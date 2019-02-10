@@ -16,5 +16,6 @@ script:
   - ./Vector/Vector    
   - ./MatrixTest/MatrixTest
   - ./Matrix/Matrix   
+  - ./MyExceptionLib/MyExceptionLib
 notifications:
   email: false
