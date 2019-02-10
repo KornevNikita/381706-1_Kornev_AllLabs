@@ -27,6 +27,10 @@ set(StackList StackList)
 set(StackListLib StackListLib)
 set(StackListTest StackListTest)
 
+set(MultiStack MultiStack)
+set(MultiStackLib MultiStackLib)
+set(MultiStackTest MultiStackTest)
+
 set(MyExceptionLib MyExceptionLib)
 
 
@@ -46,6 +50,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MyExceptionLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackListLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MultiStackLib)
 
 add_subdirectory(Stack)
 add_subdirectory(StackLib)
@@ -70,6 +75,10 @@ add_subdirectory(ListTest)
 add_subdirectory(StackList)
 add_subdirectory(StackListLib)
 add_subdirectory(StackListTest)
+
+add_subdirectory(MultiStack)
+add_subdirectory(MultiStackLib)
+add_subdirectory(MultiStackTest)
 
 add_subdirectory(gtest)
 add_subdirectory(MyExceptionLib)

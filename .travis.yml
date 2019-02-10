@@ -19,6 +19,8 @@ script:
   - ./ListTest/ListTest
   - ./List/List     
   - ./StackListTest/StackListTest
-  - ./StackList/StackList  
+  - ./StackList/StackList
+  - ./MultiStackTest/MultiStackTest
+  - ./MultiStack/MultiStack    
 notifications:
   email: false
