@@ -16,5 +16,7 @@ script:
   - ./Vector/Vector    
   - ./MatrixTest/MatrixTest
   - ./Matrix/Matrix   
+  - ./ListTest/ListTest
+  - ./List/List     
 notifications:
   email: false
