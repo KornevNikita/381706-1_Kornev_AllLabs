@@ -9,5 +9,6 @@ script:
   - cmake ../381706-1_Kornev_AllLabs
   - make -j
   - ./StackTest/StackTest
+  - ./Stack/Stack
 notifications:
   email: false
