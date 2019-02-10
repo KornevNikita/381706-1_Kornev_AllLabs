@@ -12,5 +12,7 @@ script:
   - ./Stack/Stack
   - ./QueueTest/QueueTest
   - ./Queue/Queue
+  - ./MatrixTest/MatrixTest
+  - ./Matrix/Matrix  
 notifications:
   email: false

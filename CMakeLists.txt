@@ -11,6 +11,10 @@ set(Queue Queue)
 set(QueueLib QueueLib)
 set(QueueTest QueueTest)
 
+set(Matrix Matrix)
+set(MatrixLib MatrixLib)
+set(MatrixTest MatrixTest)
+
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
 if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
@@ -23,6 +27,7 @@ file(GLOB srcs "*.cpp") #Добавляем в переменную srcs все 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
 
 add_subdirectory(Stack)
 add_subdirectory(StackLib)
@@ -31,5 +36,9 @@ add_subdirectory(StackTest)
 add_subdirectory(Queue)
 add_subdirectory(QueueLib)
 add_subdirectory(QueueTest)
+
+add_subdirectory(Matrix)
+add_subdirectory(MatrixLib)
+add_subdirectory(MatrixTest)
 
 add_subdirectory(gtest)
