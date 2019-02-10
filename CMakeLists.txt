@@ -23,6 +23,10 @@ set(List List)
 set(ListLib ListLib)
 set(ListTest ListTest)
 
+set(StackList StackList)
+set(StackListLib StackListLib)
+set(StackListTest StackListTest)
+
 set(MyExceptionLib MyExceptionLib)
 
 
@@ -41,6 +45,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MyExceptionLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackListLib)
 
 add_subdirectory(Stack)
 add_subdirectory(StackLib)
@@ -61,6 +66,10 @@ add_subdirectory(VectorTest)
 add_subdirectory(List)
 add_subdirectory(ListLib)
 add_subdirectory(ListTest)
+
+add_subdirectory(StackList)
+add_subdirectory(StackListLib)
+add_subdirectory(StackListTest)
 
 add_subdirectory(gtest)
 add_subdirectory(MyExceptionLib)
