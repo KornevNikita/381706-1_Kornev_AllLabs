@@ -1,2 +1,2 @@
 # 381706-1_Kornev_AllLabs
-https://travis-ci.com/KornevNikita/381706-1_Kornev_AllLabs.svg?branch=br1
+[![Build Status](https://travis-ci.org/https://travis-ci.com/KornevNikita/381706-1_Kornev_AllLabs.svg?branch=br1)](https://travis-ci.org/https://travis-ci.com/KornevNikita/381706-1_Kornev_AllLabs.svg?branch=br1)
