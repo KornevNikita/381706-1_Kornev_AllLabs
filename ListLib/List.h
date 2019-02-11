@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Elem.h"
+#include "MyException.h"
 
 using namespace std;
 
