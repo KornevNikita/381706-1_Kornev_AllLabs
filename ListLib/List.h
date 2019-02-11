@@ -9,16 +9,16 @@ template <class T>
 class TList 
 {
 protected:
-  TElem<T>* begin; //Указатель на первое звено списка
+  TElem<T>* begin; // Указатель на первое звено списка
 public:
-  TList(); //Конструктор по умолчанию
-  TList(TList<T> &A); //Конструктор копирования
-  void PutBegin(T A); //Установить начальное звено
-  void PutEnd(T A); //Установить последнее звено
-  T GetBegin(); //Взять начало
-  T GetEnd(); //Взять конец
-  bool IsFull(); //Проверка на полноту
-  bool IsEmpty(); //Проверка на пустоту
+  TList(); // Конструктор по умолчанию
+  TList(TList<T> &A); // Конструктор копирования
+  void PutBegin(T A); // Установить начальное звено
+  void PutEnd(T A); // Установить последнее звено
+  T GetBegin(); // Взять начало
+  T GetEnd(); // Взять конец
+  bool IsFull(); // Проверка на полноту
+  bool IsEmpty(); // Проверка на пустоту
 };
 
 template <class T>
@@ -50,9 +50,9 @@ TList<T>::TList(TList<T> &A)
 template <class T>
 void TList<T>::PutBegin(T A)
 {
-  if (begin == 0)//Если список пуст
+  if (begin == 0) //Если список пуст
   {
-	  TElem<T>* temp = new TElem<T>(A, 0);//
+	  TElem<T>* temp = new TElem<T>(A, 0);
 	  begin = temp;
   }
   else

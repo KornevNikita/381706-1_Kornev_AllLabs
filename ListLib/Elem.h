@@ -7,15 +7,15 @@ template <class T>
 class TElem
 {
 private:
-T elem; //Значение
-  TElem<T>* next; //Указатель на след элемент
+T elem; // Значение
+  TElem<T>* next; // Указатель на след элемент
 public:
-  TElem(T _e = 0, TElem<T>* _n = 0); //Конструктор 
-  TElem(TElem<T> &A); //Конструктор копирования
-  T Get(); //Получить эначение элемента
-  TElem* GetNext(); //Получить указатель на следующий 
-  void Set(T e); //Установить значение
-  void SetNext(TElem<T>* n); //Установить указатель
+  TElem(T _e = 0, TElem<T>* _n = 0); // Конструктор 
+  TElem(TElem<T> &A); // Конструктор копирования
+  T Get(); // Получить эначение элемента
+  TElem* GetNext(); // Получить указатель на следующий 
+  void Set(T e); // Установить значение
+  void SetNext(TElem<T>* n); // Установить указатель
 };
 
 template <class T>
