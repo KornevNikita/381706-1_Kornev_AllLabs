@@ -108,8 +108,8 @@ bool TList<T>::IsFull(){
 		TElem<T>* A = new TElem<T>();
 		return (A == 0);
 	}
-	catch ();
-		return false;
+	catch (MyException me)
+	  return false;
 	return true;
 
 }
