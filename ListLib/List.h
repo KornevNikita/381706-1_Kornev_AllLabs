@@ -1,98 +1,122 @@
-﻿#include "Field.h"
-#include "MyException.h"
+#pragma once
+#include <iostream>
+#include "Elem.h"
+
+using namespace std;
 
 template <class T>
 class TList {
 protected:
-	TField<T>* begin;
+	TElem<T>* begin;//Указатель на первое звено списка
 public:
-	TList() : begin(0) {};
-	TList(TList &A);
-	~TList();
-	void PutBegin(T _field);
-	void PutEnd(T _field);
-	bool IsEmpty() { return (begin == 0); }
-	T GetBegin();
-	T GetEnd();
-
+	TList();//Конст по умолчанию
+	TList(TList<T> &A);//Конст копирования
+	void PutBegin(T A);//Установить начальное звено
+	void PutEnd(T A);//Установить последнее звено
+	T GetBegin();//Вытащить начало
+	T GetEnd();//Вытащить конец
+	bool IsFull();//Полон
+	bool IsEmpty();//Пуст
 };
 
 template <class T>
-TList<T>::TList(TList<T> &other)
+TList<T>::TList(){
+	begin = 0;
+}
+
+template <class T>
+TList<T>::TList(TList<T> &A)
 {
-	TField<T>* fieldCopy = other.begin;
-	TField<T>* copyNext;
-	if (other.begin == 0)
+	TElem<T> *tmp1 = A.begin;
+	TElem<T> *tmp2;
+	if (A.begin == 0)
 		begin = 0;
 	else
 	{
-		begin = new TField<T>(*other.begin);
-		copyNext = begin;
-		while (fieldCopy->TField<T>::GetNext() != 0)
+		begin = new TElem<T>(*A.begin);
+		tmp2 = begin;
+		while (tmp1->TElem<T>::GetNext() != 0)
 		{
-			copyNext->TField<T>::SetNext(new TField<T>(*(fieldCopy->TField<T>::GetNext())));
-			fieldCopy = fieldCopy->TField<T>::GetNext();
-			copyNext = copyNext->TField<T>::GetNext();
+			tmp2->TElem<T>::SetNext(new TElem<T>(*(tmp1->TElem<T>::GetNext())));
+			tmp1 = tmp1->TElem<T>::GetNext();
+			tmp2 = tmp2->TElem<T>::GetNext();
 		}
 	}
 }
 
 template <class T>
-TList<T> :: ~TList()
-{
-	while (begin != 0)
+void TList<T>::PutBegin(T A){
+	if (begin == 0)//Если список пуст
 	{
-		TField<T>* temp = begin->TField<T>::GetNext();
-		delete begin;
+		TElem<T>* temp = new TElem<T>(A, 0);//
+		begin = temp;
+	}
+	else
+	{
+		TElem<T>* temp = new TElem<T>(A, begin);
 		begin = temp;
 	}
 }
 
 template <class T>
-T TList<T> ::GetBegin()
-{
-	if (IsEmpty())
-	{
-		MyException ex(7, "Список пуст");
-		throw ex;
+void TList<T>::PutEnd(T A){
+	if (IsEmpty()){
+		begin = new TElem<T>(A, 0);
 	}
-	T tempField = begin->GetField();
-	begin = begin->GetNext();
-	return tempField;
-}
-
-template <class T>
-T TList<T> :: GetEnd()
-{
-	if (IsEmpty())
-	{
-		MyException ex(7, "Список пуст");
-		throw ex;
-	}
-	TField<T>* temp = begin;
-	while ((temp->GetNext())->GetNext() != 0)
-		temp = temp->GetNext();
-	T tempField = (temp->GetNext())->GetField();
-	temp->SetNext(0);
-	return tempField;
-}
-
-template <class T>
-void TList<T> :: PutBegin(T _field)
-{
-	TField<T>* temp = new TField<T>(_field, begin);
-	begin = temp;
-}
-
-template <class T>
-void TList<T> ::PutEnd(T _field)
-{
-	if (IsEmpty())
-		begin = new TField<T>(_field, 0);
 	else {
-		TField<T>* temp = begin;
+		TElem<T>* temp = begin;
 		while (temp->GetNext() != 0)
 			temp = temp->GetNext();
-		temp->SetNext(new TField<T>(_field, 0));
+
+		temp->SetNext(new TElem <T>(A, 0));
 	}
 }
+
+template <class T>
+T TList<T>::GetBegin(){
+	if (!IsEmpty()) {
+		T tempE = begin->Get();
+		begin = begin->GetNext();
+		return tempE;
+	}
+	else
+		throw "Have not any elem";
+}
+
+template <class T>
+T TList<T>::GetEnd(){
+	if (!IsEmpty()) {
+		TElem<T>* temp = begin;
+		while ((temp->GetNext())->GetNext() != 0)
+			temp = temp->GetNext();
+
+		T tempE = (temp->GetNext())->Get();
+
+		temp->SetNext(0);
+
+		return tempE;
+	}
+	else
+		throw "Have not any elem";
+
+}
+
+template <class T>
+bool TList<T>::IsFull(){
+	try
+	{
+		TElem<T>* A = new TElem();
+		return (A == 0)
+	}
+	catch ()
+		return false;
+	return true;
+
+}
+
+template <class T>
+bool TList<T>::IsEmpty(){
+	return (begin == 0);
+}
+
+
