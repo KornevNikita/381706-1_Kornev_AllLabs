@@ -108,7 +108,7 @@ bool TList<T>::IsFull(){
 		TElem<T>* A = new TElem<T>();
 		return (A == 0);
 	}
-	catch (MyException me)
+	catch (MyException me(1, 'blabla')
 	  return false;
 	return true;
 
