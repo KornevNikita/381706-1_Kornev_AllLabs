@@ -105,10 +105,10 @@ template <class T>
 bool TList<T>::IsFull(){
 	try
 	{
-		TElem<T>* A = new TElem();
-		return (A == 0)
+		TElem<T>* A = new TElem<T>();
+		return (A == 0);
 	}
-	catch ()
+	catch ();
 		return false;
 	return true;
 
