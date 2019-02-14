@@ -87,7 +87,7 @@ double PN::Result()
 		{
 			if ((*this)[i] == ')')
 			{
-				while (st.GetTop() != '(')
+				while (st.GetTopElem() != '(')
 					Queue.Put(st.Pow());
 				st.Pow();
 			}
