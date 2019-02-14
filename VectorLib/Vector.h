@@ -31,14 +31,15 @@ public:
   friend TVector<T> operator*(T ch, const TVector &other) 
   {
 	TVector<T> temp(other.n);
-	for (int i = 0;i < other.n;i++)
+	for (int i = 0; i < other.n; i++)
 	  temp.v[i] = ch * other.v[i];
+
 	return temp;
   }
   
   friend ostream &operator<<(ostream &os, const TVector other) 
   {
-	for (int i = 0;i < other.n;i++)
+	for (int i = 0; i < other.n; i++)
 	  os << other.v[i] << "\t";
 	os << endl;
 	return os;
@@ -46,7 +47,7 @@ public:
   friend istream &operator>>(istream &is, TVector &other) 
   {
 	cout << "TVector(n=" << other.n << "):" << endl;
-	for (int i = 0;i < other.n;i++) 
+	for (int i = 0; i < other.n; i++) 
 	{
 	  cout << "[" << i << "]=";
 	  is >> other.v[i];
