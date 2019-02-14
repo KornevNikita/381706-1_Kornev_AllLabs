@@ -21,6 +21,8 @@ public:
   int GetSize(); // Получить размер
   bool IsFull(); // Проверка на полноту
   bool IsEmpty(); // Проверка на пустоту
+	T Pow();
+	T GetTopElem();
 };
 
 template <class T>
@@ -118,4 +120,25 @@ template <class T>
 int TStack<T>::GetSize() 
 {
   return size;
+}
+
+template <class T>
+T TStack<T> ::Pow() {
+	if (IsEmpty()) {
+		MyException ex(3, "Стек пуст");
+		throw ex;
+	}
+	top--;
+	return stack[top];
+}
+
+template <class T>
+T TStack<T> ::GetTopElem() {
+	if (IsEmpty()) {
+		MyException ex(3, "Стек пуст");
+		throw ex;
+	}
+	top--;
+	return stack[top];
+	top++;
 }
