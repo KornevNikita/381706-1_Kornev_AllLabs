@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/KornevNikita/381706-1_Kornev_AllLabs.svg?branch=br1)](https://travis-ci.com/KornevNikita/381706-1_Kornev_AllLabs)
 
 
-<h1>Лабораторные работы</h1>
+# Лабораторные работы
 1) бинарные ☑
 2) матрица ☑
 3) стек ☑
