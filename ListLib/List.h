@@ -11,6 +11,7 @@ class TList
 {
 protected:
 TElem<T>* begin; // Указатель на первое звено списка
+
 public:
 TList(); // Конструктор по умолчанию
 TList(TList<T> &A); // Конструктор копирования
@@ -122,8 +123,9 @@ bool TList<T>::IsFull()
 	TElem<T>* A = new TElem<T>();
 	return (A == 0);
   }
-catch (...)
-  return false;
+
+  catch (...)
+    return false;
 
 return true;
 }

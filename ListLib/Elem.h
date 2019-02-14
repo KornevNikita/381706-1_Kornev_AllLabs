@@ -7,7 +7,7 @@ template <class T>
 class TElem
 {
 private:
-T elem; // Значение
+  T elem; // Значение
   TElem<T>* next; // Указатель на след элемент
 public:
   TElem(T _e = 0, TElem<T>* _n = 0); // Конструктор 
