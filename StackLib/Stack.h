@@ -124,22 +124,26 @@ int TStack<T>::GetSize()
 }
 
 template <class T>
-T TStack<T> ::Pow() {
-	if (IsEmpty()) {
+T TStack<T> ::Pow()
+ {
+	if (IsEmpty()) 
+	{
 		MyException ex(3, "Стек пуст");
 		throw ex;
 	}
 	top--;
-	return stack[top];
+	return top;
 }
 
 template <class T>
-T TStack<T> ::GetTopElem() {
-	if (IsEmpty()) {
+T TStack<T> ::GetTopElem() 
+{
+	if (IsEmpty()) 
+	{
 		MyException ex(3, "Стек пуст");
 		throw ex;
 	}
 	top--;
-	return stack[top];
+	return top;
 	top++;
 }
