@@ -2,12 +2,12 @@
 #include "Vector.h"
 
 template <class T>
-class TMatrix : public TVector<TVector<T>> 
+class TMatrix : public TVector<TVector<T> > 
 {
 public:
   explicit TMatrix(int _n = 0);
-  TMatrix(const TMatrix &other) : TVector<TVector<T>>(other) {}
-  TMatrix(const TVector<TVector<T>> &other) : TVector<TVector<T>>(other) {}
+  TMatrix(const TMatrix &other) : TVector<TVector<T> >(other) {}
+  TMatrix(const TVector<TVector<T> > &other) : TVector<TVector<T> >(other) {}
   ~TMatrix() {}
 
   TMatrix& operator=(const TMatrix &other);
@@ -31,7 +31,7 @@ public:
 };
 
 template <class T>
-TMatrix<T> :: TMatrix(int _n) : TVector<TVector<T>>(_n)
+TMatrix<T> :: TMatrix(int _n) : TVector<TVector<T> >(_n)
 {
   for (int i = 0; i < _n; i++)
 	TMatrix<T>::v[i] = TVector<T>(_n - i);
@@ -40,17 +40,17 @@ TMatrix<T> :: TMatrix(int _n) : TVector<TVector<T>>(_n)
 template <class T>
 TMatrix<T> & TMatrix<T> ::operator=(const TMatrix &other)
 {
-  TVector<TVector<T>>::operator=(other);
+  TVector<TVector<T> >::operator=(other);
   return *this;
 }
 
 template <class T>
-TMatrix<T> TMatrix<T> :: operator+(const TMatrix &other){ return TVector<TVector<T>>::operator+(other); }
+TMatrix<T> TMatrix<T> :: operator+(const TMatrix &other){ return TVector<TVector<T> >::operator+(other); }
 
 template <class T>
 TMatrix<T> TMatrix<T> :: operator-(const TMatrix &other)
 {
-  return TVector<TVector<T>>::operator-(other);
+  return TVector<TVector<T> >::operator-(other);
 }
 
 template <class T>
