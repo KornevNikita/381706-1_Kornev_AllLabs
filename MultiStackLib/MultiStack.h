@@ -14,6 +14,7 @@ protected:
 	TNewStack<T>** stackmas;
 	int GetFreeMem();
 	void Repack(int _n);
+
 public:
 	TMStack(int _n, int _size);
 	TMStack(TMStack &A);
@@ -127,31 +128,31 @@ int TMStack<T>::GetFreeMem()
 template <class T>
 void TMStack<T>::Repack(int _n)
 {
-	int FM = GetFreeMem();
-	int add_ev = FM / n;
-	int add_full = FM % n;
-	int* new_size = new int[n];
+	int FM = GetFreeMem(); // находим кол-во свободных ячеек во всем мультистеке
+	int add_ev = FM / n; // находим кол-во свободных ячеек, которые можно добавить в каждый стек
+	int add_full = FM % n; 
+	int* new_size = new int[n]; 
 	T** new_start = new T*[n];
 	T** old_start = new T*[n];
 
 	for (int i = 0; i < n; i++)
-		new_size[i] = add_ev + stackmas[i]->GetTop();
-	new_size[_n] += add_full;
-	new_start[0] = old_start[0] = mas;
+		new_size[i] = add_ev + stackmas[i]->GetTop(); // Увеличиваем старые размеры стеков 
+	new_size[_n] += add_full; // Если кол-во свободных ячеек во всем мультистеке не кратно кол-ву стеков n, то оставшиеся свободные ячейки добавляем в _n-й стек:
+	new_start[0] = old_start[0] = mas; // Определяем новое начало
 
-	for (int i = 1; i < n; i++)
+	for (int i = 1; i < n; i++) // Определяем новое начало для каждого стека с учетом их размера
 	{
 		new_start[i] = new_start[i - 1] + new_size[i - 1];
 		old_start[i] = old_start[i - 1] + stackmas[i - 1]->GetSize();
 	}
 
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < n; i++) // Если новый индекс начала i-го стека меньше, чем индекс старого начала, то копируем элементы по порядку, в котором они хранились раньше
 	{
 		if (new_start[i] <= old_start[i])
 			for (int j = 0; j < stackmas[i]->GetTop(); j++)
 				new_start[i][j] = old_start[i][j];
 
-		else
+		else // В противном случае идем по новым позициям стеков до тех пор, пока не выполнится условие. Затем копируем элементы, в котором они хранились раньше, но в обратном порядке
 		{
 			int s = i + 1;
 			for (s; s < n; s++)
