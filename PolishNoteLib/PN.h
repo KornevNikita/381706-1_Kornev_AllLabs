@@ -1,5 +1,6 @@
 #pragma once
 #include"Queue.h"
+#include"MyException.h"
 
 class PN 
 {

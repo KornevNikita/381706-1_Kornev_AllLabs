@@ -5,7 +5,7 @@ int main()
 	A[0] = '3';
 	A[1] = '+';
 	A[2] = '3';
-	RPN B(3, A);
+	PN B(3, A);
 	B.Print();
 	double temp = B.Result();
 	cout << temp << endl << "Опа";
