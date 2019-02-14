@@ -125,7 +125,9 @@ bool TList<T>::IsFull()
   }
 
   catch (...)
-    return false;
+  {
+	return false;
+  }
 
 return true;
 }

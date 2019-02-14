@@ -24,7 +24,7 @@ public:
   virtual TVector operator-(const TVector &other);
   virtual TVector operator*(const TVector &other);
   virtual TVector operator*(T ch);
-  virtual bool operator==ё(const TVector &other);
+  virtual bool operator==(const TVector &other);
   virtual bool operator!=(const TVector &other);
   virtual ~TVector();
   
