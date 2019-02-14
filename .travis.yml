@@ -22,5 +22,6 @@ script:
   - ./StackList/StackList
   - ./MultiStackTest/MultiStackTest
   - ./MultiStack/MultiStack
+  - ./PolishNote/PolishNote
 notifications:
   email: false
