@@ -47,7 +47,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ReversePolishNotationLib)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MultiStackLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
 
