@@ -23,14 +23,14 @@ public:
   bool IsFull(); // Проверка на полноту
   bool IsEmpty(); // Проверка на пустоту
 	T Pow();
-	T GetTopElem();
+	T GetTop();
 };
 
 template <class T>
 TStack<T>::TStack()
 {
   size = 0;
-  mas = 0;
+  mas = NULL;
   top = 0;
 }
 
@@ -44,25 +44,26 @@ TStack<T>::TStack(int _size)
 	if (_size == 0)
 	{
 	  size = 0;
-	  mas = 0;
+	  mas = NULL;
 	  top = 0;
 	}
   
 	  else
 	{
-	  mas = new T[_size];
 	  size = _size;
+	  mas = new T[size];
 	  top = 0; 
 	}
 }
 
 template <class T>
-TStack<T>::TStack(TStack<T> &st){
+TStack<T>::TStack(TStack<T> &st)
+{
   size = st.size;
   top = st.top;
   
   if (size == 0)
-	mas = 0;
+	mas = NULL;
   
   else
   {
@@ -72,18 +73,18 @@ TStack<T>::TStack(TStack<T> &st){
 
   }
 }
-template <class T>
-TStack<T> :: ~TStack(){
-  if (mas != 0)
-	delete[] mas;
 
-  top = 0;
-  size = 0;
+template <class T>
+TStack<T> :: ~TStack()
+{
+  top = size = 0;
+  mas = 0;
 }
 
 
 template <class T>
-void TStack<T>::Put(T st){
+void TStack<T>::Put(T st)
+{
   if (IsFull())
 	  throw "Full";
   else
@@ -94,7 +95,8 @@ void TStack<T>::Put(T st){
 }
 
 template <class T>
-T TStack<T>::Get(){
+T TStack<T>::Get()
+{
   if (IsEmpty())
 	throw "Empty";
   
@@ -124,19 +126,7 @@ int TStack<T>::GetSize()
 }
 
 template <class T>
-T TStack<T> ::Pow()
- {
-	if (IsEmpty()) 
-	{
-		MyException ex(3, "Стек пуст");
-		throw ex;
-	}
-	top--;
-	return top;
-}
-
-template <class T>
-T TStack<T> ::GetTopElem() 
+T TStack<T> ::GetTop() 
 {
 	if (IsEmpty()) 
 	{

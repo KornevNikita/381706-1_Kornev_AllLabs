@@ -3,44 +3,35 @@
 set(PROJECT_NAME 381706-1_Kornev_AllLabs) #Создаем обычную локальную переменную с именем проекта
 project(${PROJECT_NAME}) # Название проекта
 
-set(Stack Stack)
-set(StackLib StackLib)
-set(StackTest StackTest)
+set(Vector Vector)
+set(VectorLib VectorLib)
+set(VectorTest VectorTest)
 
 set(Queue Queue)
 set(QueueLib QueueLib)
 set(QueueTest QueueTest)
 
-set(Vector Vector)
-set(VectorLib VectorLib)
-set(VectorTest VectorTest)
-
-set(Matrix Matrix)
-set(MatrixLib MatrixLib)
-set(MatrixTest MatrixTest)
-
 set(List List)
 set(ListLib ListLib)
 set(ListTest ListTest)
-
-set(StackList StackList)
-set(StackListLib StackListLib)
-set(StackListTest StackListTest)
 
 set(MultiStack MultiStack)
 set(MultiStackLib MultiStackLib)
 set(MultiStackTest MultiStackTest)
 
-set(PolishNote PolishNote)
-set(PolishNoteLib PolishNoteLib)
-set(PolishNoteTest PolishNoteTest)
+set(Stack Stack)
+set(StackLib StackLib)
+set(StackTest StackTest)
 
-#set(Polinom Polinom)
-#set(PolinomLib PolinomLib)
-#set(PolinomTest PolinomTest)
+set(Matrix Matrix)
+set(MatrixLib MatrixLib)
+set(MatrixTest MatrixTest)
+
+set(ReversePolishNotation ReversePolishNotation)
+set(ReversePolishNotationLib ReversePolishNotationLib)
+set(ReversePolishNotationTest ReversePolishNotationTest)
 
 set(MyExceptionLib MyExceptionLib)
-
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
 if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
@@ -51,28 +42,14 @@ file(GLOB hdrs "*.h*") #Добавляем в переменную hdrs все �
 file(GLOB srcs "*.cpp") #Добавляем в переменную srcs все файлы с расширением .cpp
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MyExceptionLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MyExceptionLib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackListLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ReversePolishNotationLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MultiStackLib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PolishNoteLib)
-#include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PolinomLib)
-
-add_subdirectory(Stack)
-add_subdirectory(StackLib)
-add_subdirectory(StackTest)
-
-add_subdirectory(Queue)
-add_subdirectory(QueueLib)
-add_subdirectory(QueueTest)
-
-add_subdirectory(Matrix)
-add_subdirectory(MatrixLib)
-add_subdirectory(MatrixTest)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
 
 add_subdirectory(Vector)
 add_subdirectory(VectorLib)
@@ -82,21 +59,25 @@ add_subdirectory(List)
 add_subdirectory(ListLib)
 add_subdirectory(ListTest)
 
-add_subdirectory(StackList)
-add_subdirectory(StackListLib)
-add_subdirectory(StackListTest)
-
 add_subdirectory(MultiStack)
 add_subdirectory(MultiStackLib)
 add_subdirectory(MultiStackTest)
 
-add_subdirectory(PolishNote)
-add_subdirectory(PolishNoteLib)
-add_subdirectory(PolishNoteTest)
+add_subdirectory(Stack)
+add_subdirectory(StackLib)
+add_subdirectory(StackTest)
 
-#add_subdirectory(Polinom)
-#add_subdirectory(PolinomLib)
-#add_subdirectory(PolinomTest)
+add_subdirectory(ReversePolishNotation)
+add_subdirectory(ReversePolishNotationLib)
+add_subdirectory(ReversePolishNotationTest)
+
+add_subdirectory(Queue)
+add_subdirectory(QueueLib)
+add_subdirectory(QueueTest)
+
+add_subdirectory(Matrix)
+add_subdirectory(MatrixLib)
+add_subdirectory(MatrixTest)
 
 add_subdirectory(gtest)
 add_subdirectory(MyExceptionLib)
