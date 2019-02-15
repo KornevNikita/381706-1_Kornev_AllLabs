@@ -2,6 +2,7 @@
 #include"Queue.h"
 #include"MyException.h"
 #include<ctype.h>
+#include <stdlib.h>
 using namespace std;
 
 int Priority(const char ch);
