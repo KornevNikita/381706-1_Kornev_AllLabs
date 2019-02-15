@@ -27,10 +27,6 @@ set(Matrix Matrix)
 set(MatrixLib MatrixLib)
 set(MatrixTest MatrixTest)
 
-set(ReversePolishNotation ReversePolishNotation)
-set(ReversePolishNotationLib ReversePolishNotationLib)
-set(ReversePolishNotationTest ReversePolishNotationTest)
-
 set(MyExceptionLib MyExceptionLib)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
@@ -66,10 +62,6 @@ add_subdirectory(MultiStackTest)
 add_subdirectory(Stack)
 add_subdirectory(StackLib)
 add_subdirectory(StackTest)
-
-add_subdirectory(ReversePolishNotation)
-add_subdirectory(ReversePolishNotationLib)
-add_subdirectory(ReversePolishNotationTest)
 
 add_subdirectory(Queue)
 add_subdirectory(QueueLib)
