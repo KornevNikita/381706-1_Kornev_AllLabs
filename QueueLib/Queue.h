@@ -57,7 +57,7 @@ void TQueue<T>::Put(T A)
 template <class T>
 T TQueue<T>::Get()
 {
-  /*if (IsEmpty())
+  if (IsEmpty())
 	throw "Queue is empty";
 
   else
@@ -67,17 +67,8 @@ T TQueue<T>::Get()
 	count--;
 
 	return temp;
-  }*/
-
-  if (IsEmpty())
-	throw "blabla";
-  else
-  {
-	T temp = TStack<T>::mas[start];
-	start = (start + 1) % TStack<T>::size;
-	count--;
-	return temp;
   }
+
 }
 
 template <class T>
