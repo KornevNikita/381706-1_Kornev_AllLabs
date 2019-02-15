@@ -18,7 +18,6 @@ script:
   - ./Matrix/Matrix   
   - ./ListTest/ListTest
   - ./List/List     
-  - ./StackListTest/StackListTest
   - ./StackList/StackList
   - ./MultiStackTest/MultiStackTest
   - ./MultiStack/MultiStack
