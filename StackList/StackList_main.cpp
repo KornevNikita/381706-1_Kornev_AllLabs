@@ -2,30 +2,19 @@
 
 int main()
 {
-  cout << "Test Stack on List" << endl << "\nEnter maxsize stack: ";
-  int n;
-  cin >> n;
-  try
-  {
-    TStackList<int> stack(n);
-    for (int i = 1; i <= n; i++)
-    {
-      cout << "\nPut element of the Stack: " << i;
-      stack.Put(i);
-    }
+  TStackList<double> li(10);
+  li.Put(1);
+  li.Put(2);
+  li.PutBegin(3);
+  li.PutEnd(4);
 
-    cout << "\n\n\nStack :\n";
-    // stack.Print();
-    cout << endl << endl;
-  
-    while (!stack.IsEmpty())
-     cout << "\nGet element of the Stack: " << stack.Get();
-    cout << "\n\nStack is Empty.";
-  }
+  double a, b, c, d, e, f;
+  a = li.Get;
+  b = li.GetBegin;
+  c = li.GetEnd;
+  d = li.GetSize;
+  e = li.IsEmpty();
+  f = li.IsFull();
 
-  catch (MyException exp)
-  {
-    // exp.Print();
-  }
   return 0;
 }
