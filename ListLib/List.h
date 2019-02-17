@@ -34,7 +34,7 @@ TList<T>::TList()
 template <class T>
 TList<T>::TList(TList<T> &A)
 {
-	count = L.count;
+	count = A.count;
   TElem<T> *tmp1 = A.begin;
   TElem<T> *tmp2;
   
