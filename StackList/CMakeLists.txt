@@ -2,5 +2,6 @@
 file(GLOB srcs "*.cpp")
 
 add_executable(${StackList} ${srcs} ${hdrs}) 
+target_link_libraries(${StackList} ${StackListLib}) 
 
-target_link_libraries(${StackList} ${StackListLib})
+
