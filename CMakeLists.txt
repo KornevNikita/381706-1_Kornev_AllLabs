@@ -23,9 +23,17 @@ set(Stack Stack)
 set(StackLib StackLib)
 set(StackTest StackTest)
 
+set(StackList StackList)
+set(StackListLib StackListLib)
+set(StackListTest StackListsTest)
+
 set(Matrix Matrix)
 set(MatrixLib MatrixLib)
 set(MatrixTest MatrixTest)
+
+set(ReversePolishNotation ReversePolishNotation)
+set(ReversePolishNotationLib ReversePolishNotationLib)
+set(ReversePolishNotationTest ReversePolishNotationTest)
 
 set(MyExceptionLib MyExceptionLib)
 
@@ -43,9 +51,10 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
-
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ReversePolishNotationLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MultiStackLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackListLib)
 
 add_subdirectory(Vector)
 add_subdirectory(VectorLib)
@@ -70,6 +79,14 @@ add_subdirectory(QueueTest)
 add_subdirectory(Matrix)
 add_subdirectory(MatrixLib)
 add_subdirectory(MatrixTest)
+
+add_subdirectory(ReversePolishNotation)
+add_subdirectory(ReversePolishNotationLib)
+add_subdirectory(ReversePolishNotationTest)
+
+add_subdirectory(StackList)
+add_subdirectory(StackListLib)
+add_subdirectory(StackListTest)
 
 add_subdirectory(gtest)
 add_subdirectory(MyExceptionLib)
