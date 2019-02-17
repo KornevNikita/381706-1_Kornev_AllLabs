@@ -69,11 +69,11 @@ TEST(TStackList, can_use_empty_check_true)
   ASSERT_TRUE(S.IsEmpty());
 }
 
-TEST(TStackList, can_check_empty_print)
-{
-  TStackList<int> S(5);
-  ASSERT_ANY_THROW(S.Print());
-}
+// TEST(TStackList, can_check_empty_print)
+// {
+//   TStackList<int> S(5);
+//   ASSERT_ANY_THROW(S.Print());
+// }
 
 TEST(TStackList, can_use_empty_check_false)
 {
