@@ -15,7 +15,7 @@ int main()
     }
 
     cout << "\n\n\nStack :\n";
-    stack.Print();
+    // stack.Print();
     cout << endl << endl;
   
     while (!stack.IsEmpty())
@@ -25,7 +25,7 @@ int main()
 
   catch (MyException exp)
   {
-    exp.Print();
+    // exp.Print();
   }
   return 0;
 }

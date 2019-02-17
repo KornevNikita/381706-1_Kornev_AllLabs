@@ -17,7 +17,7 @@ public:
   int GetSize();
   bool IsEmpty();
   bool IsFull();
-  void Print();
+  // void Print();
 };
 
 template <class T>
@@ -82,13 +82,13 @@ bool TStackList<T>::IsFull()
   return false;
 }//-----------------------------------------------------------------
 
-template<class T>
-void TStackList<T>::Print()
-{
-  if (this->IsEmpty())
-    throw "heh";
-  TList<T>::Print();
-}//-----------------------------------------------------------------
+// template<class T>
+// void TStackList<T>::Print()
+// {
+  // if (this->IsEmpty())
+    // throw "heh";
+  // TList<T>::Print();
+// }//-----------------------------------------------------------------
 
 
 
