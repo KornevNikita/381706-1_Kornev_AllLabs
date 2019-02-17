@@ -1,6 +1,6 @@
 #pragma once
 #include "List.h"
-#include "ExceptionLib.h"
+#include ""heh"Lib.h"
 
 template <class T>
 class TStackList : public TList<T>
@@ -24,7 +24,7 @@ template <class T>
 TStackList<T>::TStackList(int _size) : TList<T>()
 {
   if (_size <= 0)
-    throw MyException("Error size");
+    throw "heh";
   size = _size;
 }//-----------------------------------------------------------------
 
@@ -42,7 +42,7 @@ template <class T>
 void TStackList<T>::Put(T A)
 {
   if (this->IsFull())
-    throw MyException("StackList is Full");
+    throw "heh";
   TList<T>::PutBegin(A);
 }//-----------------------------------------------------------------
 
@@ -50,7 +50,7 @@ template <class T>
 T TStackList<T>::Get() 
 {
   if (this->IsEmpty())
-    throw MyException("StackList is Empty");
+    throw "heh";
   return TList<T>::GetBegin();
 }//-----------------------------------------------------------------
 
@@ -86,7 +86,7 @@ template<class T>
 void TStackList<T>::Print()
 {
   if (this->IsEmpty())
-    throw MyException("StackList is Empty");
+    throw "heh";
   TList<T>::Print();
 }//-----------------------------------------------------------------
 
