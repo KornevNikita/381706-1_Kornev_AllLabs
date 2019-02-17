@@ -9,10 +9,10 @@ int main()
   li.PutEnd(4);
 
   double a, b, c, d, e, f;
-  a = li.Get;
-  b = li.GetBegin;
-  c = li.GetEnd;
-  d = li.GetSize;
+  a = li.Get();
+  b = li.GetBegin();
+  c = li.GetEnd();
+  d = li.GetSize();
   e = li.IsEmpty();
   f = li.IsFull();
 
