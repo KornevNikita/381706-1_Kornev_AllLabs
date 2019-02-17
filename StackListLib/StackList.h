@@ -6,18 +6,18 @@ template <class T>
 class TStackList : public TList<T>
 {
 protected:
-  int size;
+  int size; // размер
 
 public:
-  TStackList<T>(int _size = 1);
-  TStackList<T>(TStackList<T> &A);
-  ~TStackList();
-  void Put(T A);
-  T Get();
-  int GetMaxSize();
-  int GetSize();
-  bool IsEmpty();
-  bool IsFull();
+  TStackList<T>(int _size = 1); // конструктор с параметром
+  TStackList<T>(TStackList<T> &A); // конструктор копирования
+  ~TStackList(); // деструктор
+  void Put(T A); // положить элемент в стек
+  T Get(); // взять элемент из стека
+  int GetMaxSize(); // получить размер стека
+  int GetSize(); // получить кол-во элементов стека на данный момент
+  bool IsEmpty(); // проверка на пустоту
+  bool IsFull(); // проверка на полноту
 };
 
 template <class T>
