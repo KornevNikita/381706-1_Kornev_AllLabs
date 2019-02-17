@@ -11,6 +11,7 @@ class TList
 {
 protected:
 TElem<T>* begin; // Указатель на первое звено списка
+int count;                  //кол-во элементов в списке
 
 public:
 TList(); // Конструктор по умолчанию
@@ -27,11 +28,13 @@ template <class T>
 TList<T>::TList()
 {
   begin = 0;
+	count = 0;
 }
 
 template <class T>
 TList<T>::TList(TList<T> &A)
 {
+	count = L.count;
   TElem<T> *tmp1 = A.begin;
   TElem<T> *tmp2;
   
@@ -65,6 +68,7 @@ void TList<T>::PutBegin(T A)
 	TElem<T>* temp = new TElem<T>(A, begin);
 	begin = temp;
   }
+	count++;
 }
 
 template <class T>
@@ -81,6 +85,7 @@ void TList<T>::PutEnd(T A)
 
 	temp->SetNext(new TElem <T>(A, 0));
   }
+	count++;
 }
 
 template <class T>
@@ -95,6 +100,7 @@ T TList<T>::GetBegin()
 
 else
   throw "Have not any elem";
+count--;
 }
 
 template <class T>
@@ -113,6 +119,7 @@ T TList<T>::GetEnd()
 
   else
 	throw "Have not any elem";
+count--;
 }
 
 template <class T>
