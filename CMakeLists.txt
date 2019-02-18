@@ -11,13 +11,17 @@ set(Queue Queue)
 set(QueueLib QueueLib)
 set(QueueTest QueueTest)
 
-set(List List)
-set(ListLib ListLib)
-set(ListTest ListTest)
-
 set(ArrayList ArrayList)
 set(ArrayListLib ArrayListLib)
 set(ArrayListTest ArrayListTest)
+
+set(StackList StackList)
+set(StackListLib StackListLib)
+set(StackListTest StackListTest)
+
+set(List List)
+set(ListLib ListLib)
+set(ListTest ListTest)
 
 set(MultiStack MultiStack)
 set(MultiStackLib MultiStackLib)
@@ -27,17 +31,13 @@ set(Stack Stack)
 set(StackLib StackLib)
 set(StackTest StackTest)
 
-set(StackList StackList)
-set(StackListLib StackListLib)
-set(StackListTest StackListsTest)
-
 set(Matrix Matrix)
 set(MatrixLib MatrixLib)
 set(MatrixTest MatrixTest)
 
-set(ReversePolishNotation ReversePolishNotation)
-set(ReversePolishNotationLib ReversePolishNotationLib)
-set(ReversePolishNotationTest ReversePolishNotationTest)
+set(Polinomial Polinomial)
+set(PolinomialLib PolinomialLib)
+set(PolinomialTest PolinomialTest)
 
 set(MyExceptionLib MyExceptionLib)
 
@@ -55,23 +55,28 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QueueLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MatrixLib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ReversePolishNotationLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PolinomialLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MultiStackLib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ArrayListLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackListLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ArrayListLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
+
 
 add_subdirectory(Vector)
 add_subdirectory(VectorLib)
 add_subdirectory(VectorTest)
 
+add_subdirectory(ArrayList)
+add_subdirectory(ArrayListLib)
+add_subdirectory(ArrayListTest)
+
 add_subdirectory(List)
 add_subdirectory(ListLib)
 add_subdirectory(ListTest)
 
-add_subdirectory(ArrayList)
-add_subdirectory(ArrayListLib)
-add_subdirectory(ArrayListTest)
+add_subdirectory(StackList)
+add_subdirectory(StackListLib)
+add_subdirectory(StackListTest)
 
 add_subdirectory(MultiStack)
 add_subdirectory(MultiStackLib)
@@ -81,6 +86,10 @@ add_subdirectory(Stack)
 add_subdirectory(StackLib)
 add_subdirectory(StackTest)
 
+add_subdirectory(Polinomial)
+add_subdirectory(PolinomialLib)
+add_subdirectory(PolinomialTest)
+
 add_subdirectory(Queue)
 add_subdirectory(QueueLib)
 add_subdirectory(QueueTest)
@@ -88,14 +97,6 @@ add_subdirectory(QueueTest)
 add_subdirectory(Matrix)
 add_subdirectory(MatrixLib)
 add_subdirectory(MatrixTest)
-
-add_subdirectory(ReversePolishNotation)
-add_subdirectory(ReversePolishNotationLib)
-add_subdirectory(ReversePolishNotationTest)
-
-add_subdirectory(StackList)
-add_subdirectory(StackListLib)
-add_subdirectory(StackListTest)
 
 add_subdirectory(gtest)
 add_subdirectory(MyExceptionLib)

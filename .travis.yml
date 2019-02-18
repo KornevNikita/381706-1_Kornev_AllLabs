@@ -17,10 +17,12 @@ script:
   - ./MatrixTest/MatrixTest
   - ./Matrix/Matrix   
   - ./ListTest/ListTest
-  - ./List/List     
-
+  - ./List/List
+  - ./ArrayList/ArrayList
+  - ./ArrayListTest/ArrayListTest
   - ./MultiStackTest/MultiStackTest
   - ./MultiStack/MultiStack
-
+  - ./Polinomial/Polinomial
+  - ./PolinomialTest/PolinomialTest
 notifications:
   email: false
