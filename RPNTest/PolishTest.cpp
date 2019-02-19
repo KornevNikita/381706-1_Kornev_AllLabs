@@ -1,7 +1,7 @@
 #include "gtest.h"
 #include "RPN.h"
 
-TEST(Polish, can_get_priority)
+TEST(RPN, can_get_priority)
 {
 
   ASSERT_EQ(1, Priority(')'));
@@ -13,7 +13,7 @@ TEST(Polish, can_get_priority)
   ASSERT_ANY_THROW(Priority('!'));
 }
 
-TEST(Polish, can_check_is_op)
+TEST(RPN, can_check_is_op)
 {
   ASSERT_EQ(1, IsOperator(')'));
   ASSERT_EQ(1, IsOperator('('));
@@ -25,7 +25,7 @@ TEST(Polish, can_check_is_op)
   ASSERT_EQ(false, IsOperator('!'));
 }
 
-TEST(Polish, can_convert_to_pol)
+TEST(RPN, can_convert_to_pol)
 {
   char s[] = "9+8";
   TString A(s);
@@ -40,7 +40,7 @@ TEST(Polish, can_convert_to_pol)
   ASSERT_EQ(B.Get(), '+');
 }
 
-TEST(Polish, can_add)
+TEST(RPN, can_add)
 {
   char s[] = "9+8";
   TString A(s);
@@ -49,7 +49,7 @@ TEST(Polish, can_add)
   EXPECT_EQ(17, Result(B));
 }
 
-TEST(Polish, throw_when_math_expression_have_is_uncurrent_symbol)
+TEST(RPN, throw_when_math_expression_have_is_uncurrent_symbol)
 {
   char s[] = "9!8";
   TString A(s);
@@ -57,7 +57,7 @@ TEST(Polish, throw_when_math_expression_have_is_uncurrent_symbol)
   ASSERT_ANY_THROW(ToRPN(A));
 }
 
-TEST(Polish, throw_when_math_expression_have_is_uncurrent_kol_skobok)
+TEST(RPN, throw_when_math_expression_have_is_uncurrent_kol_skobok)
 {
   char s[] = "(9*8";
   TString A(s);
@@ -65,7 +65,7 @@ TEST(Polish, throw_when_math_expression_have_is_uncurrent_kol_skobok)
   ASSERT_ANY_THROW(ToRPN(A));
 }
 
-TEST(Polish, throw_when_math_expression_is_fuflo_in_begin)
+TEST(RPN, throw_when_math_expression_is_fuflo_in_begin)
 {
   char s[] = "*9*8";
   TString A(s);
@@ -73,7 +73,7 @@ TEST(Polish, throw_when_math_expression_is_fuflo_in_begin)
   ASSERT_ANY_THROW(ToRPN(A));
 }
 
-TEST(Polish, no_throw_when_queue_is_chiki_bamboni)
+TEST(RPN, no_throw_when_queue_is_chiki_bamboni)
 {
   TQueue<char> B(7);
   B.Put('[');
@@ -87,7 +87,7 @@ TEST(Polish, no_throw_when_queue_is_chiki_bamboni)
   ASSERT_EQ(Result(B), 17);
 }
 
-TEST(Polish, throw_when_queue_is_fuflo_in_begin)
+TEST(RPN, throw_when_queue_is_fuflo_in_begin)
 {
   TQueue<char> B(7);
   B.Put('+');
@@ -100,7 +100,7 @@ TEST(Polish, throw_when_queue_is_fuflo_in_begin)
   ASSERT_ANY_THROW(Result(B));
 }
 
-TEST(Polish, throw_when_queue_is_fuflo_in_begin_2)
+TEST(RPN, throw_when_queue_is_fuflo_in_begin_2)
 {
   TQueue<char> B(7);
   B.Put('[');
@@ -113,7 +113,7 @@ TEST(Polish, throw_when_queue_is_fuflo_in_begin_2)
   ASSERT_ANY_THROW(Result(B));
 }
 
-TEST(Polish, throw_when_queue_is_fuflo_1)
+TEST(RPN, throw_when_queue_is_fuflo_1)
 {
   TQueue<char> B(10);
   B.Put('[');
@@ -133,7 +133,7 @@ TEST(Polish, throw_when_queue_is_fuflo_1)
   ASSERT_ANY_THROW(Result(B));
 }
 
-TEST(Polish, throw_when_queue_is_fuflo)
+TEST(RPN, throw_when_queue_is_fuflo)
 {
   TQueue<char> B(7);
   B.Put('[');
@@ -149,7 +149,7 @@ TEST(Polish, throw_when_queue_is_fuflo)
   ASSERT_ANY_THROW(Result(B));
 }
 
-TEST(Polish, can_add_two_digit_number) 
+TEST(RPN, can_add_two_digit_number) 
 {
   char s[] = "43+57";
   TString A(s);
@@ -159,7 +159,7 @@ TEST(Polish, can_add_two_digit_number)
   EXPECT_EQ(100, Result(B));
 }
 
-TEST(Polish, can_subtract) 
+TEST(RPN, can_subtract) 
 {
   char s[] = "9-8";
   TString A(s);
@@ -169,7 +169,7 @@ TEST(Polish, can_subtract)
   EXPECT_EQ(1, Result(B));
 }
 
-TEST(Polish, can_multiplication)
+TEST(RPN, can_multiplication)
 {
   char s[] = "9*8";
   TString A(s);
@@ -179,7 +179,7 @@ TEST(Polish, can_multiplication)
   EXPECT_EQ(72, Result(B));
 }
 
-TEST(Polish, can_multiplication_3_param) 
+TEST(RPN, can_multiplication_3_param) 
 {
   char s[] = "9*8*2";
   TString A(s);
@@ -189,7 +189,7 @@ TEST(Polish, can_multiplication_3_param)
   EXPECT_EQ(144, Result(B));
 }
 
-TEST(Polish, can_multiplication_and_add_whith_hooks) 
+TEST(RPN, can_multiplication_and_add_whith_hooks) 
 {
   char s[] = "(9+8)*2";
   TString A(s);
@@ -198,7 +198,7 @@ TEST(Polish, can_multiplication_and_add_whith_hooks)
   EXPECT_EQ(34, Result(B));
 }
 
-TEST(Polish, can_multiplication_and_add_whithout_hooks) 
+TEST(RPN, can_multiplication_and_add_whithout_hooks) 
 {
   char s[] = "9+8*2";
   TString A(s);
@@ -208,7 +208,7 @@ TEST(Polish, can_multiplication_and_add_whithout_hooks)
   EXPECT_EQ(25, Result(B));
 }
 
-TEST(Polish, can_split)
+TEST(RPN, can_split)
 {
   char s[] = "8/2";
   TString A(s);
@@ -218,7 +218,7 @@ TEST(Polish, can_split)
   EXPECT_EQ(4, Result(B));
 }
 
-TEST(Polish, can_multi_1) 
+TEST(RPN, can_multi_1) 
 {
   char s[] = "(43+57)*43";
   TString A(s);
@@ -228,7 +228,7 @@ TEST(Polish, can_multi_1)
   EXPECT_EQ(4300, Result(B));
 }
 
-TEST(Polish, can_multi_2)
+TEST(RPN, can_multi_2)
 {
   char s[] = "(43+57)/20";
   TString A(s);
@@ -238,7 +238,7 @@ TEST(Polish, can_multi_2)
   EXPECT_EQ(5, Result(B));
 }
 
-TEST(Polish, can_multi_3) 
+TEST(RPN, can_multi_3) 
 {
   char s[] = "(43+57)/(20+5)";
   TString A(s);
@@ -248,7 +248,7 @@ TEST(Polish, can_multi_3)
   EXPECT_EQ(4, Result(B));
 }
 
-TEST(Polish, can_multi_with_negative_first_number) 
+TEST(RPN, can_multi_with_negative_first_number) 
 {
   char s[] = "-5+(43+57)/20";
   TString A(s);
