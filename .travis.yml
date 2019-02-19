@@ -24,5 +24,8 @@ script:
   - ./MultiStack/MultiStack
   - ./Polinomial/Polinomial
   - ./PolinomialTest/PolinomialTest
+  - ./RPN/RPN
+  - ./RPNTest/RPNTest  
+  
 notifications:
   email: false
