@@ -9,8 +9,8 @@ protected:
   int count;             
 
 public:
-  TQueue(int n = 0);     
-  TQueue(TQueue <T> &q); 
+  TQueue(int n = 0): TStack<T>(n){ start = count = 0; } 
+  TQueue(TQueue <T> &q): TStack<T>(q), start(q.start), count(q.count) {}
   virtual ~TQueue();     
   T Top();
   void Put(T a);         
@@ -18,20 +18,6 @@ public:
   bool IsFull();         
   bool IsEmpty();        
 };
-
-template <class T>
-TQueue<T>::TQueue(int n) : TStack<T>(n)
-{
-  start = 0;
-  count = 0;
-} 
-
-template <class T>
-TQueue<T>::TQueue<T>(TQueue<T> &q) : TStack<T>(q)
-{
-  start = q.start;
-  count = q.count;
-} 
 
 template <class T>
 TQueue<T>::~TQueue()
