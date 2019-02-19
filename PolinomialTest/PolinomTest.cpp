@@ -93,7 +93,7 @@ TEST(TPolinom, trows_when_equivalence_polynoms_with_different_n)
 
 TEST(TPolinom, can_multiply_equal_polynoms)
 {
-	TPolinom Rez(3);
+	TPolinom Result(3);
 	int m1[3] = { 1, 2, 3 };
 	TMonom tmp1(3, m1, 1);
 	TPolinom A(3);
