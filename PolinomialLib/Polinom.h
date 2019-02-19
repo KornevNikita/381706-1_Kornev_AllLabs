@@ -8,7 +8,7 @@ protected:
 	int n,
 		size;
 public:
-	TPolinom(int _n = 10);
+	TPolinom(int _n = 1);
 	TPolinom(const TPolinom &A);
 	~TPolinom();
 	int GetSize();

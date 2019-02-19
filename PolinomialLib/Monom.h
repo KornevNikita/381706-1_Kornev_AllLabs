@@ -11,7 +11,7 @@ protected:
 	double c;
 	int n;
 public:
-	TMonom(int _n = 10);
+	TMonom(int _n = 1);
 	TMonom(int _n, int* _power, double _c);
 	TMonom(const TMonom& A);
 	~TMonom();
