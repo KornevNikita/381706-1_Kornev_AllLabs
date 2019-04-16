@@ -1,0 +1,31 @@
+language: cpp
+compiler:
+  - gcc
+  - clang
+before_script:
+  - mkdir ../build
+  - cd ../build
+script:
+  - cmake ../381706-1_Kornev_AllLabs
+  - make -j
+  - ./StackTest/StackTest
+  - ./Stack/Stack
+  - ./QueueTest/QueueTest
+  - ./Queue/Queue
+  - ./VectorTest/VectorTest
+  - ./Vector/Vector    
+  - ./MatrixTest/MatrixTest
+  - ./Matrix/Matrix   
+  - ./ListTest/ListTest
+  - ./List/List
+  - ./ArrayList/ArrayList
+  - ./ArrayListTest/ArrayListTest
+  - ./MultiStackTest/MultiStackTest
+  - ./MultiStack/MultiStack
+  - ./Polinomial/Polinomial
+  - ./PolinomialTest/PolinomialTest
+  - ./RPN/RPN  
+  - ./RPNTest/RPNTest  
+  
+notifications:
+  email: false
