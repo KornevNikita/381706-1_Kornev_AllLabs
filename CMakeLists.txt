@@ -43,6 +43,10 @@ set(RPN RPN)
 set(RPNLib RPNLib)
 set(RPNTest RPNTest)
 
+set(Text Text)
+set(TextLib TextLib)
+set(TextTest TextTest)
+
 set(MyExceptionLib MyExceptionLib)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
@@ -65,6 +69,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/StackListLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ArrayListLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/RPNLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/TextLib)
 
 add_subdirectory(Vector)
 add_subdirectory(VectorLib)
@@ -105,6 +110,10 @@ add_subdirectory(MatrixTest)
 add_subdirectory(RPN)
 add_subdirectory(RPNLib)
 add_subdirectory(RPNTest)
+
+add_subdirectory(Text)
+add_subdirectory(TextLib)
+add_subdirectory(TextTest)
 
 add_subdirectory(gtest)
 add_subdirectory(MyExceptionLib)
