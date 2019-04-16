@@ -23,6 +23,7 @@ public:
   bool IsFull(); // Проверка на полноту
   bool IsEmpty(); // Проверка на пустоту
 	T Top();
+	void Clean();
 };
 
 template <class T>
@@ -133,4 +134,11 @@ T TStack<T> ::Top()
 	{
 		return mas[top - 1];
 	}
+}
+
+template<class T>
+void TStack<T>::Clean()
+{
+	while (!this->IsEmpty())
+		this->Get();
 }
