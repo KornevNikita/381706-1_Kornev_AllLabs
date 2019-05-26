@@ -28,7 +28,7 @@ script:
   #- ./RPNTest/RPN
   #- ./TextTest/TextTest
   #- ./Text/Text
-  - ./ScanTable/ScanTableTest
+  - ./ScanTableTest/ScanTableTest
   #- ./ScanTable/ScanTable
   - ./SortTableTest/SortTableTest
   #- ./SortTable/SortTable
