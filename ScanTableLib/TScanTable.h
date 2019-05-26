@@ -163,40 +163,40 @@ public:
 
 	bool Find(string k)
 	{
-		for (int i = 0; i < TTable<TValue>::DataCount; i++)
+		for (int i = 0; i < TTable<TValue>::DataCount; i++) // проходим по элементам таблицы
 		{
-			TTable<TValue>::eff++;
-			if (TArrayTable<TValue>::arr[i].GetKey() == k)
+			TTable<TValue>::eff++; // увеличиваем показатель эффективности
+			if (TArrayTable<TValue>::arr[i].GetKey() == k) // если ключ текущего элемента равен искомому
 			{
-				TArrayTable<TValue>::currNum = i;
-				return true;
+				TArrayTable<TValue>::currNum = i; // присваиваем текущему номер найденного элемента
+				return true; // нашли элемент, возвращаем true
 			}
 		}
-		TArrayTable<TValue>::currNum = TTable<TValue>::DataCount;
-		return false;
+		TArrayTable<TValue>::currNum = TTable<TValue>::DataCount; // прошли по всем элементам, не нашли искомый
+		return false; // возвращаем false
 	}
 
 	bool Insert(TRecord<TValue> tr)
 	{
-		if (TArrayTable<TValue>::IsFull())
+		if (TArrayTable<TValue>::IsFull()) // если таблица заполнена, бросаем исключение
 			throw "TableIsFull";
-		if (!Find(tr.GetKey()))
+		if (!Find(tr.GetKey())) // если этого элемента нет в таблице, помещаем
 		{
-			TArrayTable<TValue>::arr[TArrayTable<TValue>::currNum] = tr;
-			TTable<TValue>::DataCount++;
-			return true;
+			TArrayTable<TValue>::arr[TArrayTable<TValue>::currNum] = tr; // приравниваем текущий
+			TTable<TValue>::DataCount++; // увеличиваем число элементов в таблице
+			return true; // всё ок, возвращаем true
 		}
-		return false;
+		return false; // в противном случае, возвращаем false
 	}
 
 	void Delete(string k)
 	{
-		if (TArrayTable<TValue>::IsEmpty())
+		if (TArrayTable<TValue>::IsEmpty()) // таблица пуста, бросаем исключение
 			throw "TableIsEmpty";
-		if (Find(k))
+		if (Find(k)) // ищем элемент
 		{
-			TArrayTable<TValue>::arr[TArrayTable<TValue>::currNum] = TArrayTable<TValue>::arr[TTable<TValue>::DataCount - 1];
-			TTable<TValue>::DataCount--;
+			TArrayTable<TValue>::arr[TArrayTable<TValue>::currNum] = TArrayTable<TValue>::arr[TTable<TValue>::DataCount - 1]; // сдвигаем элементы после него на единицу назад
+			TTable<TValue>::DataCount--; // уменьшаем число элементов
 		}		
 	}
 };
