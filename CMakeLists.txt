@@ -1,7 +1,7 @@
-﻿cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
+﻿cmake_minimum_required(VERSION 2.8) 
 
-set(PROJECT_NAME 381706-1_Kornev_AllLabs) #Создаем обычную локальную переменную с именем проекта
-project(${PROJECT_NAME}) # Название проекта
+set(PROJECT_NAME 381706-1_Kornev_AllLabs) 
+project(${PROJECT_NAME}) 
 
 set(Vector Vector)
 set(VectorLib VectorLib)
@@ -49,14 +49,13 @@ set(TextTest TextTest)
 
 set(MyExceptionLib MyExceptionLib)
 
-set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
-if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
-  set(CMAKE_BUILD_TYPE Release) #Если нет то устанавливаем Release
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) 
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release) 
 endif()
 
-file(GLOB hdrs "*.h*") #Добавляем в переменную hdrs все файлы с расширением .h
-file(GLOB srcs "*.cpp") #Добавляем в переменную srcs все файлы с расширением .cpp
-
+file(GLOB hdrs "*.h*") 
+file(GLOB srcs "*.cpp") 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/MyExceptionLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/VectorLib)

@@ -1,39 +1,40 @@
 #pragma once
-#include "TNode.h"
+#include "TLink.h"
+#include <string>
+#include <stack>
+#include <iostream>
+#include <fstream>
 
-//class TText
-//{
-//protected:
-//	TNode *root;
-//
-//public:
-//	TText();
-//	TText(TText &T);
-//	TText(char *c = 0);
-//
-//	TText &operator= (TText &A);
-//	TText &operator+=(char *str);
-//
-//	TNode* Copy(int start, int n);
-//	TNode* Find(char *a);
-//	int FindIndex(char *a);
-//	void Insert(TNode *start, TNode* d);
-//	
-//};
-
-//====================================================
-
-#include "TNodeIter.h"
+using namespace std;
 
 class TText
 {
-protected:
-	TNode* root;
+private:
+	TLink *pFirst;
+	TLink *pCurr;
+	stack <TLink*> st;
+	int level;
 public:
 	TText();
-	char* Copy(int start, int n);
-	void Del(int start, int n);
-	void Insert(TNode* start, TNode* d);
-	TNode* Find(char* a);
-	int FindIndex(char* a);
+	void GoNextLink();
+	void GoDownLink();
+	void GoPrevLink();
+	void InsNextLine(char *s);
+	void InsNextSection(char *s);
+	void InsDownLine(char *s);
+	void InsDownSection(char *s);
+	void DelNext();
+	void DelDown();
+
+	void PrintText(TLink *tmp);
+	void Print();
+	void SaveText(TLink *tmp, ofstream& f);
+	void Save(char *name);
+
+	void Reset();
+	bool IsEnd();
+	void GoNext();
+
+	void MarkCurr();
+	TLink* GetCurr();
 };

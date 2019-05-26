@@ -1,76 +1,169 @@
 #include "TText.h"
+#include "TLink.h"
+#include <iostream>
 
-char* TText::Copy(int start, int n)
+using namespace std;
+
+TText::TText() 
+{}
+
+void TText::GoNextLink() 
 {
-	char* res = new char[n];
-	bool f = false;
-	int pos = 0;
-	TNodeIter t(root);
-	t.operator++();
-	for (int i = 0; i < n;)
+	if (this->pCurr->pNext != NULL)
 	{
-		if (t()->GetLevel() == 3)
+		st.push(this->pCurr);
+		pCurr = this->pCurr->pNext;
+	}
+}
+
+
+void TText::GoDownLink() 
+{
+	if (this->pCurr->pDown != NULL)
+	{
+		st.push(this->pCurr);
+		pCurr = this->pCurr->pDown;
+	}
+}
+
+void TText::GoPrevLink() {
+	if (!st.empty())
+	{
+		this->pCurr = st.top();
+		st.pop();
+	}
+}
+
+void TText::InsNextLine(char *s) {
+	TLink *p = new TLink(s, pCurr->pNext, NULL);
+	pCurr->pNext = p;
+}
+
+void TText::InsNextSection(char *s) {
+	TLink *p = new TLink(s, NULL, pCurr->pNext);
+	pCurr->pNext = p;
+}
+
+void TText::InsDownLine(char *s) {
+	TLink *p = new TLink(s, pCurr->pDown, NULL);
+	pCurr->pDown = p;
+}
+
+void TText::InsDownSection(char *s) {
+	TLink *p = new TLink(s, NULL, pCurr->pDown);
+	pCurr->pDown = p;
+}
+
+void TText::DelNext() {
+	if (pCurr->pNext != NULL)
+	{
+		TLink *p = pCurr->pNext;
+		pCurr->pNext = p->pNext;
+		delete p;
+	}
+}
+
+void TText::DelDown() {
+	if (pCurr->pDown != NULL)
+	{
+		TLink *p = pCurr->pDown;
+		pCurr->pDown = p->pDown;
+		delete p;
+	}
+}
+
+
+void TText::Print() 
+{
+	level = 0;
+	PrintText(pFirst);
+}
+
+void TText::PrintText(TLink *tmp)
+{
+	if (tmp != NULL)
+	{
+		if (pCurr == tmp)
+			cout << "--> ";
+		for (int i = 0; i < level; i++)
+			cout << "    ";
+		cout << tmp->str << endl;
+		if (tmp->pDown != NULL)
 		{
-			pos++;
-			if (pos == start)
-				f = true;
-			if (f)
-			{
-				res[i] = t()->GetData();
-				i++;
-			}
-			t.operator++();
+			level++;
+			PrintText(tmp->pDown);
+			level--;
+		}
+		if (tmp->pNext != NULL)
+		{
+			PrintText(tmp->pNext);
 		}
 	}
-	return res;
 }
 
-void TText::Del(int start, int n)
+
+void TText::SaveText(TLink *tmp, ofstream& f) 
 {
-	int pos = 0;
-	for (TNodeIter i(root); !i.IsEnd(); i.operator++())
-		if (i()->GetLevel() == 3)
-		{
-			pos++;
-			TNode* t = i();
-			for (int j = 0; j < n; j++)
-			{
-				t->GetSosed()->SetData(-1);
-				t->SetSosed(t->GetSosed());
-			}
-		}
+	f << tmp->str << endl;
+	if (tmp->pDown != NULL)
+	{
+		f << "{\n";
+		SaveText(tmp->pDown, f);
+		f << "}\n";
+	}
+	if (tmp->pNext != NULL)
+		SaveText(tmp->pNext, f);
 }
 
-TNode* TText:: Find(char* a)
+void TText::Save(char *name) 
 {
-	int l = strlen(a);
-	TNodeIter i(root);
-	//bool f;
-	i.operator++();
-	for (; !i.IsEnd(); i.operator++())
-		if (i()->GetData() == a[0])
-		{
-			bool f = true;
-			TNodeIter j = i;
-			for (int t = 0; t < l && !j.IsEnd(); t++)
-				if (j()->GetData() != a[t])
-				{
-					f = false;
-					break;
-				}
-			if (f)
-				return i();
-		}
-	return NULL;
+	ofstream ofs(name);
+	SaveText(pFirst, ofs);
+	ofs.close();
 }
 
-void TText::Insert(TNode* start, TNode* d)
+void TText::Reset() 
 {
-	d->SetSosed(start->GetSosed());
-	start->SetSosed(d);
+	while (!st.empty())
+		st.pop();
+
+	pCurr = pFirst;
+	st.push(pCurr);
+	if (pFirst->pDown != NULL)
+		st.push(pFirst->pDown);
+
+	if (pFirst->pNext != NULL)
+		st.push(pFirst->pNext);
 }
 
-int TText::FindIndex(char* a)
+bool TText::IsEnd() 
 {
-	return 0;
+	return st.empty();
+}
+
+void TText::GoNext() 
+{
+	if (!st.empty())
+	{
+		pCurr = st.top();
+		st.pop();
+	}
+
+	if (pCurr != pFirst)
+	{
+		if (pCurr->pNext != NULL)
+			st.push(pCurr->pNext);
+		if (pCurr->pDown != NULL)
+			st.push(pCurr->pDown);
+	}
+}
+
+void TText::MarkCurr()
+{
+	pCurr->flag = true;
+}
+
+TLink* TText::GetCurr()
+{
+	return pCurr;
 }
