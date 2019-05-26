@@ -51,6 +51,22 @@ set(Plex Plex)
 set(PlexLib PlexLib)
 set(PlexTest PlexTest)
 
+set(ScanTable ScanTable)
+set(ScanTableLib ScanTableLib)
+set(ScanTableTest ScanTableTest)
+
+set(SortTable SortTable)
+set(SortTableLib SortTableLib)
+set(SortTableTest SortTableTest)
+
+set(TreeTable TreeTable)
+set(TreeTableLib TreeTableLib)
+set(TreeTableTest TreeTableTest)
+
+set(HashTable HashTable)
+set(HashTableLib HashTableLib)
+set(HashTableTest HashTableTest)
+
 set(MyExceptionLib MyExceptionLib)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) 
@@ -74,6 +90,10 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/RPNLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/TextLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PlexLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ScanTableLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/SortTableLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/TreeTableLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/HashTableLib)
 
 add_subdirectory(Vector)
 add_subdirectory(VectorLib)
@@ -122,6 +142,22 @@ add_subdirectory(TextTest)
 add_subdirectory(Plex)
 add_subdirectory(PlexLib)
 add_subdirectory(PlexTest)
+
+add_subdirectory(ScanTable)
+add_subdirectory(ScanTableLib)
+add_subdirectory(ScanTableTest)
+
+add_subdirectory(SortTable)
+add_subdirectory(SortTableLib)
+add_subdirectory(SortTableTest)
+
+add_subdirectory(TreeTable)
+add_subdirectory(TreeTableLib)
+add_subdirectory(TreeTableTest)
+
+add_subdirectory(HashTable)
+add_subdirectory(HashTableLib)
+add_subdirectory(HashTableTest)
 
 add_subdirectory(gtest)
 add_subdirectory(MyExceptionLib)
