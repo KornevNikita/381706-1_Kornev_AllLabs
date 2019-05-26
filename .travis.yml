@@ -18,16 +18,24 @@ script:
   #- ./Matrix/Matrix   
   - ./ListTest/ListTest
   #- ./List/List
-  - ./ArrayList/ArrayList
-  #- ./ArrayListTest/ArrayListTest
+  - ./ArrayListTest/ArrayListTest
+  #- ./ArrayListTest/ArrayList
   - ./MultiStackTest/MultiStackTest
   #- ./MultiStack/MultiStack
-  - ./Polinomial/Polinomial
-  #- ./PolinomialTest/PolinomialTest
-  - ./RPN/RPN  
-  #- ./RPNTest/RPNTest  
-  #- ./Text/Text
+  - ./PolinomialTest/PolinomialTest
+  #- ./PolinomialTest/Polinomial
+  - ./RPNTest/RPNTest  
+  #- ./RPNTest/RPN
   #- ./TextTest/TextTest
+  #- ./Text/Text
+  - ./ScanTable/ScanTableTest
+  #- ./ScanTable/ScanTable
+  - ./SortTableTest/SortTableTest
+  #- ./SortTable/SortTable
+  - ./TreeTableTest/TreeTableTest
+  #- ./TreeTable/TreeTable
+  - ./HashTableTest/HashTableTest
+  #- ./HashTable/HashTable
   
 notifications:
   email: false
