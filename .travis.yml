@@ -9,25 +9,25 @@ script:
   - cmake ../381706-1_Kornev_AllLabs
   - make -j
   - ./StackTest/StackTest
-  - ./Stack/Stack
+  #- ./Stack/Stack
   - ./QueueTest/QueueTest
-  - ./Queue/Queue
+  #- ./Queue/Queue
   - ./VectorTest/VectorTest
-  - ./Vector/Vector    
+  #- ./Vector/Vector    
   - ./MatrixTest/MatrixTest
-  - ./Matrix/Matrix   
+  #- ./Matrix/Matrix   
   - ./ListTest/ListTest
-  - ./List/List
+  #- ./List/List
   - ./ArrayList/ArrayList
-  - ./ArrayListTest/ArrayListTest
+  #- ./ArrayListTest/ArrayListTest
   - ./MultiStackTest/MultiStackTest
-  - ./MultiStack/MultiStack
+  #- ./MultiStack/MultiStack
   - ./Polinomial/Polinomial
-  - ./PolinomialTest/PolinomialTest
+  #- ./PolinomialTest/PolinomialTest
   - ./RPN/RPN  
-  - ./RPNTest/RPNTest  
-  - ./Text/Text
-  - ./TextTest/TextTest
+  #- ./RPNTest/RPNTest  
+  #- ./Text/Text
+  #- ./TextTest/TextTest
   
 notifications:
   email: false
