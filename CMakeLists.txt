@@ -47,6 +47,10 @@ set(Text Text)
 set(TextLib TextLib)
 set(TextTest TextTest)
 
+set(Plex Plex)
+set(PlexLib PlexLib)
+set(PlexTest PlexTest)
+
 set(MyExceptionLib MyExceptionLib)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) 
@@ -69,6 +73,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ArrayListLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/ListLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/RPNLib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/TextLib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/PlexLib)
 
 add_subdirectory(Vector)
 add_subdirectory(VectorLib)
@@ -113,6 +118,10 @@ add_subdirectory(RPNTest)
 add_subdirectory(Text)
 add_subdirectory(TextLib)
 add_subdirectory(TextTest)
+
+add_subdirectory(Plex)
+add_subdirectory(PlexLib)
+add_subdirectory(PlexTest)
 
 add_subdirectory(gtest)
 add_subdirectory(MyExceptionLib)
