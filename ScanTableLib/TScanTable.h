@@ -39,12 +39,9 @@ public:
 
 	void Print()
 	{
-		TRecord<TValue> tmp;
-
 		for (Reset(); !IsEnd(); GoNext())
 		{
-			tmp = GetCurrent();
-			cout << tmp.GetData() << endl;
+			cout << GetCurrent().GetData() << endl;
 		}
 	}
 

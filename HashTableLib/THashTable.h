@@ -1,116 +1,151 @@
 #pragma once
-#include "THashTable.h"
-#include "TDatList.h"
+#include <string>
 #include <iostream>
+#include "TScanTable.h"
+#include "TRecord.h"
 
+typedef string TKey;
+
+using namespace std;
 
 template<class TValue>
-class TListHash : public THashTable<TValue>
+class THashTable : public TTable<TValue>
 {
- protected:
-    PTDatList *pList; 
-    int TabSize;      
-    int CurrList;    
- public:
-	 TListHash(int Size)
-	 {
-		 pList = new PTDatList[Size];
-		 TabSize = Size;
-		 CurrList = 0;
-		 for (int i = 0; i < TabSize; ++i)
-			 pList[i] = new TDatList;
-	 }
-
-	 ~TListHash()
-	 {
-		 for (int i = 0; i < TabSize; ++i)
-			 delete pList[i];
-		 delete[] pList;
-	 }
-    
-  virtual int IsFull() const
+protected:
+	int HashFunc(TKey k)
 	{
-		return 0;
-	}	
+		int pos = 0;
+		for (int i = 0; i < k.length(); i++)
+			pos += k[i] << i;
+		return pos;
+	}
+};
 
-  virtual TKey GetKey() const
+template<class TValue>
+class TArrayHash :public THashTable<TValue>
+{
+protected:
+	int size, step, currNum;
+	TRecord<TValue> *arr;
+
+public:
+	TArrayHash(int _size = 100)
 	{
-		if (CurrList < 0 || CurrList >= TabSize)
-			return "";
-		PTTabRecord pRec = PTTabRecord(pList[CurrList]->GetDatValue());
-		return pRec ? pRec->Key : "";
+		if (_size <= 0)
+			throw "WrongSize";
+		size = _size;
+		arr = new TRecord<TValue>[size];
+		step = 17;
+		for (int i = 0; i < size; i++)
+			arr[i].GetKey() = " ";
+		currNum = 0;
 	}
 
-  virtual PTDatValue GetValuePtr() const
+	~TArrayHash()
 	{
-		if (CurrList < 0 || CurrList >= TabSize)
-			return NULL;
-		PTTabRecord pRec = PTTabRecord(pList[CurrList]->GetDatValue());
-		return pRec ? pRec->pValue : NULL;
+		delete[] arr;
 	}
 
-  virtual PTDatValue FindRecord(TKey k)
+	int GetCurrNum()
 	{
-		PTDatValue pValue = NULL;
-		CurrList = HashFunc(k) % TabSize;
-		PTDatList pL = pList[CurrList];
-		for (pL->Reset(); !pL->IsListEnded(); pL->GoNext()) 
+		return currNum;
+	}
+
+	bool Find(TKey k)
+	{
+		currNum = THashTable<TValue>::HashFunc(k) % size;
+		int freepos = -1;
+		for (int i = 0; i < size; i++)
 		{
-			if (PTTabRecord(pL->GetDatValue())->Key == k) 
-			{
-				pValue = PTTabRecord(pL->GetDatValue())->pValue;
+			TTable<TValue>::eff++;
+			if (arr[currNum].GetKey() == " ")
+				if (freepos == -1)
+					return false;
+				else
+				{
+					currNum = freepos;
+					return freepos;
+				}
+			if (arr[currNum].GetKey() == k)
+				return true;
+			if ((freepos == -1) && (arr[currNum].GetKey() == "&"))
+				freepos = currNum;
+			currNum += step;
+			currNum %= size;
+		}
+		return false;
+	}
+
+	void Delete(TKey k)
+	{
+		if (IsEmpty())
+			throw "Empty";
+		if (Find(k))
+		{
+			TTable<TValue>::DataCount--;
+			arr[currNum].GetKey() = "&";
+		}
+	}
+
+	void Reset()
+	{
+		currNum = 0;
+		while ((arr[currNum].GetKey() == " " || arr[currNum].GetKey() == "&") && (currNum < size))
+			currNum++;
+	}
+
+	bool isEnd()
+	{
+		return currNum >= size;
+	}
+
+	void GoNext()
+	{
+		while ((++currNum < size))
+		{
+			if (((arr[currNum].GetKey() != "&") && (arr[currNum].GetKey() != " ")))
 				break;
-			}
 		}
-		Efficiency += pL->GetCurrentPos() + 1;
-		return pValue;
 	}
 
-  virtual void InsRecord(TKey k, PTDatValue pVal)
+	bool Insert(TRecord<TValue> record)
 	{
-		CurrList = HashFunc(k) % TabSize;
-		pList[CurrList]->InsLast(new TTabRecord(k, pVal));
-		++DataCount;
-		++Efficiency;
-	}
-
-  virtual void DelRecord(TKey k)
-	{
-		CurrList = HashFunc(k) % TabSize;
-		PTDatList pL = pList[CurrList];
-		for (pL->Reset(); !pL->IsListEnded(); pL->GoNext()) 
+		if (!Find(record.GetKey()))
 		{
-			++Efficiency;
-			if (PTTabRecord(pL->GetDatValue())->Key == k) 
-			{
-				pL->DelCurrent();
-				--DataCount;
-				break;
-			}
+			arr[currNum] = record;
+			TTable<TValue>::DataCount++;
+			return true;
 		}
+		return false;
 	}
 
-  virtual int Reset()
+	bool IsFull()
 	{
-		CurrList = 0;
-		pList[CurrList]->Reset();
-		return IsTabEnded();
+		return TTable<TValue>::DataCount == size;
 	}
 
-  virtual int IsTabEnded() const
+	bool IsEmpty()
 	{
-		return CurrList >= TabSize;
+		return TTable<TValue>::DataCount == 0;
 	}
 
-  virtual int GoNext()
+	bool IsEnd()
 	{
-		if (!pList[CurrList]->IsListEnded())
-			pList[CurrList]->GoNext();
-		while (pList[CurrList]->IsListEnded()) 
-		{
-			CurrList = (CurrList + 1) % TabSize;
-			pList[CurrList]->Reset();
-		}
-		return IsTabEnded();
+		return currNum >= size;
+	}
+
+	TRecord<TValue> GetCurrent()
+	{
+		return arr[currNum];
+	}
+
+	void SetCurrentValue(TValue val)
+	{
+		arr[currNum].SetData(val);
+	}
+
+	void SetRowNum(int row)
+	{
+		arr[currNum].numRow = row;
 	}
 };

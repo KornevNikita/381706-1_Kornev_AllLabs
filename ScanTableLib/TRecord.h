@@ -21,6 +21,14 @@ public:
   TRecord<TValue>& operator = (TRecord<TValue> &A);
   bool operator == (TRecord<TValue> &A);
   bool operator != (TRecord<TValue> &A);
+
+	template <class T1>
+	friend istream & operator>>(istream &istr, TRecord<T1> &t)
+	{
+		istr >> t.key;
+		istr >> t.data;
+		return istr;
+	}
 };
 //-------------------------------------------------------------------------------------------------
 template <class TValue>
